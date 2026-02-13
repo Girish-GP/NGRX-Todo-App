@@ -21,7 +21,7 @@ export const TodoReducer = createReducer(
         todos: [
             ...state.todos,
             {
-                id: state.todos.length +1,
+                id: `${Date.now()}_${state.todos.length +1}`,
                 title: title,
                 completed: false
             }

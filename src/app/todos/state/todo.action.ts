@@ -13,10 +13,10 @@ export const addTodo = createAction(
 
 export const editTodo = createAction(
     '[Todo] Edit Todo',
-    props<{id:number,title:string}>()
+    props<{id:string,title:string}>()
 )
 
 export const deleteTodo = createAction(
     '[Todo] Delete Todo',
-    props<{id:number}>()
+    props<{id:string}>()
 )
