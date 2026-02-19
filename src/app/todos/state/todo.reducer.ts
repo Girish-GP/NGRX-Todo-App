@@ -1,4 +1,4 @@
-import { addTodo,editTodo,deleteTodo } from "./todo.action";
+import { addTodo,editTodo,deleteTodo, loadTodosSuccess } from "./todo.action";
 import { createReducer,on } from "@ngrx/store";
 import { initialTodoState, TodoState } from "./todo.state";
 import { Todo } from "../models/todo.model";
@@ -43,5 +43,11 @@ export const TodoReducer = createReducer(
     on(deleteTodo,(state,{id})=>({
         ...state,
         todos: state.todos.filter(todo => todo?.id !== id)
+    })),
+
+    //load Todos
+    on(loadTodosSuccess,(state,{todos})=>({
+        ...state,
+        todos: [...state.todos,...todos]
     }))
 );

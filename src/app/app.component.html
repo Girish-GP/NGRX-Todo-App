@@ -1,6 +1,6 @@
 <div class="todo">
     <label for="add-task">{{ selectedTodo.id === '' ? 'Add': 'Edit'}} Task Title</label>
-    <input type="Enter task here ..." #inputRef id="add-task" />
+    <input type="Enter task here ..." [value]="todoTitle()" id="add-task" #todoTaskInput (input)="todoTitle.set(todoTaskInput.value)"/>
     <button (click)="selectedTodo.id === '' ? addTodoTask() : updateTodoTask()">{{ selectedTodo?.id === '' ? 'Add': 'Update'}}</button>
     <h1>Todo List</h1>
     <ng-container *ngFor="let todo of (todos$ | async)">
