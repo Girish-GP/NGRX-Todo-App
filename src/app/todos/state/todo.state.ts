@@ -1,10 +1,14 @@
 import { Todo } from "../models/todo.model";
 
 export interface TodoState {
-    todos: Todo[]
+    todos: Todo[];
+    loading: boolean; // UI loading state for api calls
+    error: string | null; // Error state when api throws error
 }
 
 
 export const initialTodoState : TodoState = {
-    todos: []
+    todos: [],
+    loading: false,
+    error:null
 }
